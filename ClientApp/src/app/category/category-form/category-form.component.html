@@ -1,0 +1,20 @@
+<form [formGroup]="categoryForm">
+    <div class="col-md-4">
+       <label>Category Name</label>
+       <input class = "form-control input-sm" placeholder="Enter Category Name" formControlName="categoryName" />
+       <span *ngIf="categoryForm.controls['categoryName'].errors?.required">
+        Category Name is<strong> required</strong>
+      </span>
+    </div>
+  <hr/>
+    <div class="col-md-12">
+        <button class="btn btn-danger" [routerLink]="['/categories']" type="button">
+            Cancel
+        </button>&nbsp;
+        <button type="button" (click)="onSubmit()" class="btn btn-success" [disabled]="categoryForm.invalid" >
+            Save
+        </button>
+    </div>
+ 
+
+</form>

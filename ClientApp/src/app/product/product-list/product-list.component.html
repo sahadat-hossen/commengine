@@ -1,0 +1,41 @@
+<table >
+  
+    <thead>
+        <tr>
+            <td colspan="4">
+             Product List
+            </td>
+            <td>
+                <button class="btn btn-info" [routerLink]="['/products/new']">
+                    Add
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Create At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of products; let i=index;">
+            <td>{{i+1}}</td>
+            <td>
+                {{item.productName}}
+            </td>
+            <td>
+                {{item.category?.name}}
+            </td>
+            <td>{{item.createDate| date}}</td>
+            <td>
+                <button class="btn btn-info" (click)="edit(item.id)">
+                    Edit
+                </button>
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
+
